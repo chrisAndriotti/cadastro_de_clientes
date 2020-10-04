@@ -1,0 +1,44 @@
+*{
+    font-family: monospace;
+}
+
+body{ 
+    background-image: url(img/bg.jpg);
+}
+
+nav{
+    background-color: rgba(0, 0, 0, 0.048);
+    width: 100%;
+}
+img.img{
+    width: 200px;
+}
+.form,#menu{
+    background-color: rgba(0, 0, 0, 0.082);
+}
+#logo{
+    width: 70px;
+}
+.form-group{
+    font-family: monospace;
+    font-size: 15px;
+}
+.modal{
+    background-color: rgba(255, 182, 86, 0.123);
+}
+.modal-header,.modal-footer{
+    background-color: rgba(222, 184, 135, 0.342);
+}
+.modal-body{
+    background-color: rgba(47, 79, 79, 0.233);
+}
+.form-control,.form-control::placeholder{
+    color: rgb(222, 184, 135);
+}
+
+#setCliente,#getClientes,#btnPsqCliente{
+    background-color: rgb(222, 184, 135);
+}
+table{
+    overflow:auto;
+}

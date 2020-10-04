@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>index</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script/index.js"></script>
+    
+</head>
+<body>
+    <div class="container.fluid">
+        <nav class="navbar navbar-expand-sm navbar-light mb-2">
+            <img src="img/logo1.png" id="logo">
+            
+        </nav>
+        <div class="row justify-content-md-center">
+            <div id="alerta"></div>
+        </div>
+        
+
+        <div class="row col-lg-12 justify-content-center no-gutters" >
+       
+            <!-- table -->
+            <div class="table p-5 col-md-4" id="menu">
+                <div class="row">
+                    <button type="button" class="btn btn-primary mb-2 col-lg p-3" data-toggle="modal" data-target="#cadClienteModal">Cadastrar novo cliente</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-secondary mb-5 col-lg" data-toggle="modal" data-target="#relClientes" id="btnRelClientes">Relatório de clientes cadastrados</button>
+                </div>
+                
+                <div class="row">
+                    <button class="btn btn-outline-danger col-lg" id="sair">Sair</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal cadastro de cliente -->
+        <div class="modal fade" id="cadClienteModal" tabindex="-1" role="dialog" aria-labelledby="tituloCadClienteModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="tituloCadClienteModal">Cadastro de cliente</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="nome" placeholder="Nome completo">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label ">CPF</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="cpf" minlength="14" maxlength="14" onkeypress="$(this).mask('000.000.000-00');">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label ">Celular</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="celular" onkeypress="$(this).mask('(00)00000-0000');">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label ">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control bg-secondary" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label  class="col-sm-2 col-form-label ">Redes</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="redes" placeholder="Facebook, instagram...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label ">CEP</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="cep" onkeypress="$(this).mask('00000-000');">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label ">Rua</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="rua" placeholder="Avenida/Rua/Servidão...">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label ">Número</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control bg-secondary" id="numeroEnd">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label ">Complemento</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control bg-secondary" id="complemento" placeholder="Apto/Bloco...">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-center">
+                <button type="button" class="btn p-3" id="setCliente">Salvar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Modal relatório de clientes -->
+        <div class="modal fade" id="relClientes" tabindex="-1" role="dialog" aria-labelledby="relClientesLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="relClientesLabel">Clientes cadastrados</h5>
+                  <div id="alerta"></div>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body justify-content-center">
+                    <div class="row mb-1">
+                        <div class="col-sm-6">
+                            <button class="btn mr-sm-3" type="button" id="getClientes">Mostrar todos</button>
+                        </div>
+                        <input class="form-control mr-sm-2 col-md-4 bg-secondary" type="search" id="psqCliente" placeholder="Nome ou ID">
+                        <button class="btn mr-sm-2" type="button" id="btnPsqCliente">Pesquisar</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-dark">
+                            <thead>
+                                <tr id="cabecalho">
+                                    <th scope="col">ID</th>
+                                    <th scope="col-3">Nome</th>
+                                    <th scope="col-2">CPF</th>
+                                    <th scope="col">Celular</th>
+                                    <th scope="col-2">E-mail</th>
+                                    <th scope="col">Redes</th>
+                                    <th scope="col">CEP</th>
+                                    <th scope="col">Rua</th>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Complemento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  
+                  <button type="button" class="btn btn-primary" id="limpaPesquisa">limpar pesquisa</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+</body>
+</html>
